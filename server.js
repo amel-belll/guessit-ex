@@ -180,6 +180,7 @@ app.post('/games/:id/guesses', async (req, res, next) => {
       // Add one to the game's attempts. When the guess equals the secret, also
       // set found_at to the current time (NOW()); otherwise leave found_at
       // unchanged. The game to update is `game` (its ID is `game.id`).
+
       const updateQuery = 'UPDATE game SET attempts = attempts + 1, found_at = CASE WHEN secret = $1 THEN NOW() ELSE found_at END WHERE id = $2';
       await db.query(updateQuery, [guess, game.id]);
     }
@@ -202,6 +203,7 @@ app.post('/games/:id/delete', async (req, res, next) => {
     // Give up.
     //
     // Delete `game` from the database (its ID is `game.id`).
+
     const deleteQuery = 'DELETE FROM game WHERE id = $1';
     await db.query(deleteQuery, [game.id]);
 
