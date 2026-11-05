@@ -13,7 +13,6 @@ const PORT = process.env.PORT || 3000;
 // ou une base locale sans mot de passe par défaut.
 const DATABASE_URL =
   process.env.DATABASE_URL || "postgresql://guessit@localhost:5432/guessit";
-
 // The colour used for the page's accent (buttons, title). Change it if you
 // like a different look.
 
